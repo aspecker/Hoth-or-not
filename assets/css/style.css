@@ -1,6 +1,10 @@
+body {
+    background-image: URL("../images/bobaback.jpg")
+}
+
+
 .brand-logo {
     margin-left: 100px;
-    color: whitesmoke;
 }
 .navbarright {
     margin-right: 100px;
@@ -9,9 +13,15 @@
     text-align: center;
     font-family: 'Mina', sans-serif;
     font-size: 100px;
-    color: #37474f;
+    color: orange;
     font-weight: 750;
 }
 * {
     font-family: 'Mina', sans-serif;    
    }
+.vs {
+    color: orange;
+}
+.card-content {
+    color: white;
+}
