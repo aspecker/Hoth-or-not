@@ -1,5 +1,6 @@
 .brand-logo {
     margin-left: 100px;
+    color: whitesmoke;
 }
 .navbarright {
     margin-right: 100px;
@@ -8,4 +9,9 @@
     text-align: center;
     font-family: 'Mina', sans-serif;
     font-size: 100px;
+    color: #37474f;
+    font-weight: 750;
 }
+* {
+    font-family: 'Mina', sans-serif;    
+   }
