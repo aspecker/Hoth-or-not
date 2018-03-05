@@ -1,0 +1,24 @@
+{
+  "name": "Hoth-or-not",
+  "version": "1.0.0",
+  "description": "* learn firebase\r * learn motionsoft and determine which features we will add\r * create html files according to wireframe\r * figure out how we will organize the data\r *",
+  "main": "testingjs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aspecker/Hoth-or-not.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aspecker/Hoth-or-not/issues"
+  },
+  "homepage": "https://github.com/aspecker/Hoth-or-not#readme",
+  "dependencies": {
+    "inquirer": "^5.1.0",
+    "swapi-node": "^0.4.3"
+  }
+}
