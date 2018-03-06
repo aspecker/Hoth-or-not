@@ -4,12 +4,19 @@
 * Note- ask jared to break down get/post requests
 * ask him why they are both named post
 
+* images can't be attached to firebase objects because...
+    * information is called/changed from firebase when user presses hot or not
+    * look into google search as an option
+        
+
 ###TO DOSs for Wednesday
 * finish results page and integrate generate score function
 * connect html pages to each other
 * work on getting the jss to target correct html
 * additional animations and styling
 * figure out ideal way to generate images for each character
+    * several options, some better than others
+
 
 ### Tuesday 3/6/18 Notes
 * redesign html according to new wireframe

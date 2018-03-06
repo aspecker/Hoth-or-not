@@ -79,3 +79,10 @@ var gifMe = (character) =>{
     });
 }
 // gifMe(char);
+
+// function to write the user votes back into the charObj.js
+for (var i =0;i<characters.length;i++){
+    if (characters[i].name.indexOf(charname>-1)){
+        
+    }
+}
