@@ -12,12 +12,12 @@ var charInfo = (char) =>{
     console.log(`Skin Color: ${result.results[0].skin_color}`);
     console.log(`Birth Year: ${result.results[0].birth_year}`);
 
-        swapi.get(result.results[0].species[0].replace('https', 'http')).then((result)=>{
-            console.log(`Species: ${result.name}`);
-        });
-        swapi.get(result.results[0].homeworld.replace('https','http')).then((result)=>{
-            console.log(`Homeworld: ${result.name}`);
-        });
+    swapi.get(result.results[0].species[0].replace('https', 'http')).then((result)=>{
+        console.log(`Species: ${result.name}`);
+    });
+    swapi.get(result.results[0].homeworld.replace('https','http')).then((result)=>{
+        console.log(`Homeworld: ${result.name}`);
+    });
     });
 }
 charInfo(char);
