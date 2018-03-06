@@ -6,5 +6,5 @@ module.exports = function (app){
     app.post('/api/characters', function (req,res){
         console.log(req.body.char);
         // console.log(array);
-    })
+    });
 }

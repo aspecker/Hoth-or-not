@@ -36,6 +36,7 @@
 
 #### Technology links
 * Star Wars API documentation - https://swapi.co/documentation
+* GIPHY API node package - https://www.npmjs.com/package/giphy-api
 * SWAPI node package https://www.npmjs.com/package/swapi-node
     * will be using http://swapi.co/api/people/?search= endpoint to search for charcaters
     * result.results[0]."insert desired parameter here"
