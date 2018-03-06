@@ -9,7 +9,6 @@ var charInfo = (char) =>{
     console.log(`Mass: ${result.results[0].mass} kg`);
     console.log(`Eye color: ${result.results[0].eye_color}`);
     console.log(`Skin Color: ${result.results[0].skin_color}`);
-    console.log(`Skin Color: ${result.results[0].skin_color}`);
     console.log(`Birth Year: ${result.results[0].birth_year}`);
 
     swapi.get(result.results[0].species[0].replace('https', 'http')).then((result)=>{
