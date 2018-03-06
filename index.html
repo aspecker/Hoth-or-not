@@ -1,17 +1,48 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
-        <link href="https://fonts.googleapis.com/css?family=Krona+One|Mina" rel="stylesheet">
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <!--Boiler Plate BS-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Linking Reset-->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!--Linking Stylesheet-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!--Materialize Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Linking Materialize-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+    <link href="https://fonts.googleapis.com/css?family=Krona+One|Mina" rel="stylesheet">
+    <!--Animate CSS-->
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+      <!-- or -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<style>
+    .hoth{
+      -webkit-animation-duration: 2s;
+      
+    }
+
+    .or {
+      -webkit-animation-duration: 2s;
+      -webkit-animation-delay: .5s;
+      
+    }
+
+    .not {
+      -webkit-animation-duration: 2s;
+      -webkit-animation-delay: 1s;
+     
+    }
+</style>
+
+</head>
     <body>
             <header>
             <nav>
@@ -26,57 +57,16 @@
                   </nav>
             </header>
     <main>
-        <h1 class="bigboy">Hoth || Not</h1>
+      
+        <h1 class="hoth bigboy animated lightSpeedIn">Hoth</h1>
+        <h1 class="or bigboy animated lightSpeedIn">||</h1>
+        <h1 class="not bigboy animated lightSpeedIn">Not</h1>
+        
 
-        <div class="container">
-                <div class="row">
-                        <div class="col s12 m4">
-                          <div class="card">
-                            <div class="card-image">
-                              <img src="images/sample-1.jpg">
-                              <span class="card-title" style="color: orange;">Card Title</span>
-                            </div>
-                            <div class="card-content blue-grey darken-2">
-                              <p>Bacon ipsum dolor amet corned beef burgdoggen ball tip capicola. Ball tip beef ribs beef bacon frankfurter. Strip steak bresaola chuck, meatloaf pancetta shank tri-tip. Swine capicola bacon flank pastrami ham rump biltong andouille landjaeger cow jowl kevin turkey. Short ribs ham hock rump brisket pastrami bresaola chicken turkey capicola picanha shank salami.
-
-                                    Picanha cow tri-tip porchetta. Strip steak frankfurter drumstick boudin. Turkey fatback porchetta beef ribs shank, pork belly meatball andouille burgdoggen ham sausage frankfurter salami capicola cupim. Tenderloin bresaola short ribs chicken pork loin ball tip. Beef ribs turducken kevin, meatball swine strip steak sirloin chuck. Beef ribs rump hamburger ribeye meatball filet mignon burgdoggen tail cow pork belly kevin pork chicken. Meatball ground round prosciutto tenderloin tail capicola swine leberkas porchetta ham hock chuck frankfurter turducken. </p>
-                            </div>
-                            <div class="card-action">
-                              <a href="#">This is a link</a>
-                            </div>
-                          </div>
-                        </div>
-                
-    <div class="col s1 m1"></div>
-
-                        <div class="col s2 m2">
-                            <h4 class="vs">\|/ VS /|\</h4>
-                        </div>
-
-    <div class="col s1 m1"></div>
-
-                        <div class="col s12 m4 ">
-                                <div class="card">
-                                  <div class="card-image">
-                                    <img src="images/sample-1.jpg">
-                                    <span class="card-title" style="color: orange;">Card Title</span>
-                                  </div>
-                                  <div class="card-content blue-grey darken-2">
-                                    <p>Bacon ipsum dolor amet corned beef burgdoggen ball tip capicola. Ball tip beef ribs beef bacon frankfurter. Strip steak bresaola chuck, meatloaf pancetta shank tri-tip. Swine capicola bacon flank pastrami ham rump biltong andouille landjaeger cow jowl kevin turkey. Short ribs ham hock rump brisket pastrami bresaola chicken turkey capicola picanha shank salami.
-
-                                            Picanha cow tri-tip porchetta. Strip steak frankfurter drumstick boudin. Turkey fatback porchetta beef ribs shank, pork belly meatball andouille burgdoggen ham sausage frankfurter salami capicola cupim. Tenderloin bresaola short ribs chicken pork loin ball tip. Beef ribs turducken kevin, meatball swine strip steak sirloin chuck. Beef ribs rump hamburger ribeye meatball filet mignon burgdoggen tail cow pork belly kevin pork chicken. Meatball ground round prosciutto tenderloin tail capicola swine leberkas porchetta ham hock chuck frankfurter turducken. </p>
-                                  </div>
-                                  <div class="card-action ">
-                                    <a href="#">This is a link</a>
-                                  </div>
-                                </div>
-                              </div>
-                        
-
-                      </div>
+     
 
                       
-        </div>
+       
 
     </main>
 
@@ -106,8 +96,14 @@
                 </div>
               </footer>
 
-        <script src="assets/javascript/script.js"></script>
-        <script
+<script src="assets/javascript/script.js"></script>
+<script>
+
+$(function  
+
+
+
+
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>

@@ -1,0 +1,24 @@
+{
+  "name": "Hoth-or-not",
+  "version": "1.0.0",
+  "description": "",
+  "main": "testingjs.js",
+  "dependencies": {
+    "animate.css": "^3.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aspecker/Hoth-or-not.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aspecker/Hoth-or-not/issues"
+  },
+  "homepage": "https://github.com/aspecker/Hoth-or-not#readme"
+}
