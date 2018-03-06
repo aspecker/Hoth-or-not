@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/aspecker/Hoth-or-not#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
     "inquirer": "^5.1.0",
     "swapi-node": "^0.4.3"
   }

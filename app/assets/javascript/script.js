@@ -16,7 +16,7 @@ var charInfo = (char) =>{
             console.log(`Species: ${result.name}`);
         });
         swapi.get(result.results[0].homeworld.replace('https','http')).then((result)=>{
-            console.log(`Homeworld: ${result.name}`)
+            console.log(`Homeworld: ${result.name}`);
         });
     });
 }

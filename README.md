@@ -1,6 +1,9 @@
 # Hoth or Not
 ## Timour, Mike, Chris and Adam
 
+* Note- ask jared to break down get/post requests
+* ask him why they are both named post
+
 ## TO-DOs
 * learn firebase
 * learn motionsoft and determine which features we will add
