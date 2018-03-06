@@ -67,7 +67,7 @@ var returnScore = () => {
         } else {
             choice = 'Mustafar';
         }
-        console.log(`Character: ${character}  || You voted: ${choice}  ||  Total Hotness Score: ${percent}`)
+        console.log(`Character: ${character}  || You voted: ${choice}  ||  Total Hotness Score: ${percent}`);
     }
 }
 // returnScore();
@@ -80,9 +80,11 @@ var gifMe = (character) =>{
 }
 // gifMe(char);
 
-// function to write the user votes back into the charObj.js
+// function that delivers the images to the page
+function getImage (charname) {
 for (var i =0;i<characters.length;i++){
     if (characters[i].name.indexOf(charname>-1)){
         
     }
+}
 }
