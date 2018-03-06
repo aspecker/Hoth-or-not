@@ -1,10 +1,11 @@
 const swapi = require('swapi-node');
 var giphyKey = '8M2UHf1IMhGeVjJh9FucWYCaTAmV2gKs';
 const giphy = require('giphy-api')(giphyKey);
+
 var char = process.argv[2];
+
 var userVotes = [false,true,false,false];
-var characters = ["yoda", "luke", "han", "lando", "rey", "poe", "finn", "windu", "amidala", "qui-gon", "chewbacca",
- "r2-d2", "ackbar", "leia", "anakin", "palpatine", "greedo", "jabba", "maul", "vader","binks","wicket","grievous", "dooku","boba","jango"];
+var characters = ['test',"yoda", "luke", "han", "lando", "rey", "poe", "finn", "windu", "amidala", "qui-gon", "chewbacca", "r2-d2", "ackbar", "leia", "anakin", "palpatine", "greedo", "jabba", "maul", "vader","binks","wicket","grievous", "dooku","boba","jango"];
 var charArr = [
     {
         name: 'luke',
@@ -29,8 +30,8 @@ var charArr = [
 ]
 
 // function for pulling character information from the SWAPI
-var charInfo = (char) =>{
-    swapi.get(`http://swapi.co/api/people/?search=${char}`).then((result) => {
+var charInfo = (character) =>{
+    swapi.get(`http://swapi.co/api/people/?search=${character}`).then((result) => {
     console.log(`\nName: ${result.results[0].name}`);
     console.log(`Gender: ${result.results[0].gender}`);
     console.log(`Height: ${result.results[0].height} cm`);
@@ -48,6 +49,7 @@ var charInfo = (char) =>{
     });
 };
 // charInfo(char);
+
 // for (var i=0;i<charArr.length;i++){
 //     charInfo(charArr[i].name);
 // }
@@ -68,12 +70,12 @@ var returnScore = () => {
         console.log(`Character: ${character}  || You voted: ${choice}  ||  Total Hotness Score: ${percent}`)
     }
 }
+// returnScore();
+
 // returns a gif based on the character tag
-var gifMe = (char) =>{
-    giphy.search(char).then(function (res){
+var gifMe = (character) =>{
+    giphy.search(character).then(function (res){
         console.log(res.data[0].url);
     });
 }
-
-gifMe(char);
-// returnScore();
+// gifMe(char);

@@ -4,6 +4,13 @@
 * Note- ask jared to break down get/post requests
 * ask him why they are both named post
 
+###TO DOSs for Wednesday
+* finish results page and integrate generate score function
+* connect html pages to each other
+* work on getting the jss to target correct html
+* additional animations and styling
+* figure out ideal way to generate images for each character
+
 ### Tuesday 3/6/18 Notes
 * redesign html according to new wireframe
 * continue working on firebase to allow it to alter the correct data
@@ -33,6 +40,7 @@
     * score page -https://wireframe.cc/SKWBo0
 * User flow - https://drive.google.com/file/d/1jnPZsDNGfWmSPxwPoextMTTHXIzL9xXd/view?usp=sharing
 * Initial character list - https://docs.google.com/document/d/1JoyL6zobM8YuT4f8jhmLleU0bw1rsTvaWGYiEP9_cg4/edit
+* Character Image list - https://docs.google.com/document/d/1QuTDyrtCUFeVtRuAtCCCPYpzAVZRVi7P6R12SBxx9zc/edit?usp=sharing
 
 #### Technology links
 * Star Wars API documentation - https://swapi.co/documentation
