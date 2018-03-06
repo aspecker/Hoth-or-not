@@ -12,10 +12,10 @@
         <!-- <h1>Ouch! You've clicked me <span id="click-value-not" ></span> times not!</h1> -->
         <!-- Button -->
         <div id="mustifar-btn">
-            <button data-Hvalue="yoda">Click Me Hot!!!!!</button>
+            <button data-Hvalue="">Click Me Hot!!!!!</button>
         </div>
         <div id="hoth-btn">
-            <button data-Cvalue="yoda">Click Me Not!!!!!</button>
+            <button data-Cvalue="">Click Me Not!!!!!</button>
         </div>  
                 
 
@@ -26,18 +26,17 @@
 
 
 
-            var characters = ["yoda", "porg", "luke", "han", "lando", "rey", "poe", "finn", "mace_windu", "amidala", "qui-gon", "chewbacca",
-                                "wicket_warrick", "r2-d2", "ackbar", "leia", "anakin", "palpatine", "general_grevious", "count_dooku",
-                                "greedo", "jabba_the_hutt", "boba_fett", "jango_fett", "snoke", "darth_maul", "phasma", "tusken_raider", "darth_vader",
-                                "jar_jar_binks", "kylo_ren"];
-            var user_picks = [false, false, false, false, false, false, false, false, false, false, false, false, 
-                                false, false, false, false, false, false, false, false, false, false, false, false, false, 
-                                false, false, false, false, false, false];
+            // var characters = ["yoda", "porg", "luke", "han", "lando", "rey", "poe", "finn", "mace_windu", "amidala", "qui-gon", "chewbacca",
+            //                     "wicket_warrick", "r2-d2", "ackbar", "leia", "anakin", "palpatine", "general_grevious", "count_dooku",
+            //                     "greedo", "jabba_the_hutt", "boba_fett", "jango_fett", "snoke", "darth_maul", "phasma", "tusken_raider", "darth_vader",
+            //                     "jar_jar_binks", "kylo_ren"];
+            var characters = ["test", "yoda", "luke", "han", "lando", "rey", "poe", "finn", "windu", "amidala", "qui-gon", "chewbacca",
+                                "r2-d2", "ackbar", "leia", "anakin", "palpatine", "greedo", "jabba", "maul", "vader","binks",
+                                "wicket","grievous", "dooku","boba","jango"];
+            var user_picks = [false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                                false, false, false, false, false, false, false, false, false, false, false, false, false];
             var current_char = 0;
-            //console.log("APPLES");
-            //console.log(characters[current_char]);
             var person = (characters[current_char]);
-
             // firebase.initializeApp(config);
             var config = {
                 apiKey: "AIzaSyDqMMiRCJqUOw2BGZe3UETcuBPDFyHIn04",
@@ -53,77 +52,85 @@
 
             var hotCount = 0;
             var notCount = 0;
+            var totalVotes = 0;
 
             // $(".mustifar-btn").on("click", function() {
             function fire() {
                 event.preventDefault();
-                console.log("MUSTIFAR");
                 var gamma = $(this).attr("data-Hvalue");
-                //var beta = $(this).attr("Hvalue") + ".hot";  
-                console.log(gamma)
+                //var beta = $(this).attr("data-Hvalue") + ".hot";
+                //var delta = $(this).attr("data-Hvalue") + ".not";
+                database.ref().on("value", function(snapshot) {
+                    //var gamma = ($(this).attr("Hvalue") + ".hot");
+                    // $("#click-value-not").text(snapshot.val().beta);
+                    
+                    hotCount = snapshot.val()[gamma].hot;
+                    notCount = snapshot.val()[gamma].not;
+                    totalVotes = snapshot.val()[gamma].total;
+                    //console.log(hotCount);
+                    //console.log(notCount);
+                    // var hotCount = snapshot.hot.val();
+                }, function(errorObject) {
+                    console.log("The read failed: " + errorObject.code);
+                });
+                
+                console.log("MUSTIFAR");
+                
+                  
+                //console.log(gamma)
                 hotCount++;
+                totalVotes++;
                // var person = (characters[current_char]);
                 database.ref().child(gamma).set({
                         hot: hotCount,
-                        not: notCount
-                    // yoda: {
-                    //     hot: hotCount,
-                    //     not: notCount,
-                    // }
+                        not: notCount,
+                        total: totalVotes
                 });
             
-                // database.ref().on("value", function(snapshot) {
-                //     //var gamma = ($(this).attr("Hvalue") + ".hot");
-                //     //console.log(beta);
-                //     console.log(snapshot.val());
-                //     //$("#click-value-not").text(snapshot.val().beta);
-                //     hotCount = snapshot.val().beta;
-                //     // var hotCount = snapshot.hot.val();
-                // }, function(errorObject) {
-                //     console.log("The read failed: " + errorObject.code);
-                // });
+                user_picks[current_char] = true;
                 current_char++;
                 person = (characters[current_char]);
-                generate();
+                checker();
             }; 
 
             //$(".hoth-btn").on("click", function() {
-                function ice() {
+            function ice() {
                 event.preventDefault();
+                var gamma = $(this).attr("data-Cvalue");
+                database.ref().on("value", function(snapshot) {
+                    //var gamma = ($(this).attr("Hvalue") + ".hot");
+                    // $("#click-value-not").text(snapshot.val().beta);
+                    
+                    hotCount = snapshot.val()[gamma].hot;
+                    notCount = snapshot.val()[gamma].not;
+                    totalVotes = snapshot.val()[gamma].total;
+                    //console.log(notCount);
+                    //console.log(notCount);
+                    // var hotCount = snapshot.hot.val();
+                }, function(errorObject) {
+                    console.log("The read failed: " + errorObject.code);
+                });
+
                 console.log("HOTH");
                 
-                var gamma = $(this).attr("data-Cvalue");
-                console.log(gamma + " pickles");
+                //var gamma = $(this).attr("data-Cvalue");
+                //console.log(gamma + " pickles");
                 //var beta = $(this).attr("Cvalue") + ".not"; 
                 //console.log(beta);
-                
                 notCount++;
+                totalVotes++;
                 //var person = (characters[current_char]);
                 database.ref().child(gamma).set({
                         hot: hotCount,
-                        not: notCount
-                    // yoda: {
-                    //     hot: hotCount,
-                    //     not: notCount,
-                    // }
+                        not: notCount,
+                        total: totalVotes
                 });
-        
-                // database.ref().on("value", function(snapshot) {
-                //     //var beta = $(this).attr("Cvalue") + ".not";
-                //     //console.log(beta);
-                //     console.log(snapshot.val());
-                //     //$("#click-value-hot").text(snapshot.val().beta);
-                //     notCount = snapshot.val().beta;
-                //     // var hotCount = snapshot.hot.val();
-                // }, function(errorObject) {
-                //     console.log("The read failed: " + errorObject.code);
-                // });
+
+                user_picks[current_char] = false;
                 current_char++;
                 person = (characters[current_char]);
 
-                
-
-                generate();
+                checker();
             };
 
               // database.ref().push({
@@ -132,12 +139,15 @@
 
             
             function generate() {
+               // current_char++;
+                //person = (characters[current_char]);
                 $("#mustifar-btn").empty();
                  var nextHotBtn = $("<button>");
                  nextHotBtn.attr("data-Hvalue", person);
                  nextHotBtn.text("Hot!");
                  nextHotBtn.addClass("mustifar-btn")
                  $("#mustifar-btn").html(nextHotBtn); 
+                 console.log("---------------");
                  console.log(person); 
                  
                  $("#hoth-btn").empty();
@@ -147,6 +157,15 @@
                  nextColdBtn.addClass("hoth-btn");
                  //console.log(nextColdBtn);
                  $("#hoth-btn").html(nextColdBtn);                   
+            }
+
+            function checker() {
+                if (current_char == 28) {
+                    // go to results page
+                }
+                else if (current_char < 28) {
+                    generate()
+                }
             }
             $(document).on("click", ".hoth-btn", ice);
             $(document).on("click", ".mustifar-btn", fire);
