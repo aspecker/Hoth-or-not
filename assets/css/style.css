@@ -26,3 +26,10 @@ body {
 .card-content {
     color: white;
 }
+.hoth-btn {
+    float: left;
+    margin: 5px;
+}
+.mustafar-btn {
+   margin: 5px;
+}
