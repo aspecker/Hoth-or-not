@@ -37,8 +37,8 @@
             var characters = ["test", "yoda", "luke", "han", "lando", "rey", "poe", "finn", "windu", "amidala", "qui-gon", "chewbacca",
                                 "r2-d2", "ackbar", "leia", "anakin", "palpatine", "greedo", "jabba", "maul", "vader","binks",
                                 "wicket","grievous", "dooku","boba","jango"];
-            var user_picks = [false, false, false, false, false, false, false, false, false, false, false, false, false, false,
-                                false, false, false, false, false, false, false, false, false, false, false, false, false];
+            //var user_picks = [false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+             //                   false, false, false, false, false, false, false, false, false, false, false, false, false];
             var current_char = 0;
             var person = (characters[current_char]);
             var config = {
@@ -69,7 +69,9 @@
             // $(document).on("click", ".hoth-btn", ice);
             // generate();
 //----------------------------------------------------------------------------------------------------------------------------------
-            var returnScore = () => {
+           $.ajax({ url: currentURL + "api/user_picks", method: "GET"})
+           .then(function(returnScore){
+           // var returnScore = () => {
                 database.ref().on("value", function(snapshot) {
                     //var gamma = ($(this).attr("Hvalue") + ".hot");
                     // $("#click-value-not").text(snapshot.val().beta);
@@ -106,7 +108,8 @@
                 }, function(errorObject) {
                     console.log("The read failed: " + errorObject.code);
                 });
-            }
+           // }
+           })
 
             returnScore();
 
