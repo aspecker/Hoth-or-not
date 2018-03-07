@@ -3,10 +3,6 @@
 
 * Note- ask jared to break down get/post requests
 * ask him why they are both named post
-
-* images can't be attached to firebase objects because...
-    * information is called/changed from firebase when user presses hot or not
-    * look into google search as an option
         
 
 ###TO DOSs for Wednesday

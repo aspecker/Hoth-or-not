@@ -70,7 +70,7 @@ var returnScore = () => {
         console.log(`Character: ${character}  || You voted: ${choice}  ||  Total Hotness Score: ${percent}`);
     }
 }
-// returnScore();
+returnScore();
 
 // returns a gif based on the character tag
 var gifMe = (character) =>{
