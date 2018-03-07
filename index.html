@@ -1,104 +1,79 @@
 <!DOCTYPE html>
-
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <!--Boiler Plate BS-->
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--Linking Reset-->
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <!--Linking Stylesheet-->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <!--Materialize Icons-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Linking Materialize-->
-    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
-    <link href="https://fonts.googleapis.com/css?family=Krona+One|Mina" rel="stylesheet">
-    <!--Animate CSS-->
-    <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
-      <!-- or -->
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <title>Hoth || Not</title>
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+<!--Linking Google Fonts-->
+<link href="https://fonts.googleapis.com/css?family=Geostar+Fill|Press+Start+2P" rel="stylesheet">
 <style>
-    .hoth{
-      -webkit-animation-duration: 2s;
-      
-    }
-    .or {
-      -webkit-animation-duration: 2s;
-      -webkit-animation-delay: .5s;
-      
-    }
-    .not {
-      -webkit-animation-duration: 2s;
-      -webkit-animation-delay: 1s;
-     
-    }
+    #button {
+    display: block;
+    width: 100%; 
+    border: none;
+    background-color: rgb(255,215,0);
+    color: whitesmoke;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    opacity: .70;
+}
+
+#button:hover {
+    background-color: rgb(108, 226, 255);
+    color: black;
+}
+
+a {
+    color: black;
+    font-size: 30px;
+    font-family: 'Geostar Fill', cursive;
+}
 </style>
-
 </head>
-    <body>
-            <header>
-            <nav>
-                    <div class="nav-wrapper blue-grey darken-3">
-                      <a href="#" class="brand-logo">Logogo</a>
-                      <ul id="nav-mobile" class="right hide-on-med-and-down navbarright">
-                        <li><a href="sass.html">Heroes!</a></li>
-                        <li><a href="badges.html">Zeroes :(</a></li>
-                        <li><a href="collapsible.html">Overall Stats</a></li>
-                      </ul>
-                    </div>
-                  </nav>
-            </header>
-    <main>
-      
-        <h1 class="hoth bigboy animated lightSpeedIn">Hoth</h1>
-        <h1 class="or bigboy animated lightSpeedIn">||</h1>
-        <h1 class="not bigboy animated lightSpeedIn">Not</h1>
-        
+<body>
 
-     
+<div id="button"><a href="gamepage.html">Start</a></div>
 
-                      
-       
+<div class="starwars-demo">
+    <img src="https://cssanimation.rocks/demo/starwars/images/star.svg" alt="Star" class="star">
+    <img src="https://cssanimation.rocks/demo/starwars/images/wars.svg" alt="Wars" class="wars">
+    <h2 class="byline" id="byline">Hoth || Not</h2>
+</div>
+            
+<ul class="wrapper">
+    <div class="sun">
+        <div class="star"></div>
+    </div>
+</ul>
 
-    </main>
 
-        <footer class="page-footer blue-grey darken-3">
-                <div class="container blue-grey darken-3">
-                  <div class="row">
-                    <div class="col l6 s12">
-                      <h5 class="white-text">Footer Content</h5>
-                      <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                    </div>
-                    <div class="col l4 offset-l2 s12">
-                      <h5 class="white-text">Links</h5>
-                      <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="footer-copyright blue-grey darken-4">
-                  <div class="container">
-                  © 2018 Hoth || Not
-                  <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-                  </div>
-                </div>
-              </footer>
+<!--Linking JavaScript-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+<script>
+var byline = document.getElementById('byline');     // Find the H2
+bylineText = byline.innerHTML;                      // Get the content of the H2
+bylineArr = bylineText.split('');                   // Split content into array
+byline.innerHTML = '';                              // Empty current content
 
-              <script src="assets/javascript/script.js"></script>
-              <script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-        <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-          </body>
-      </html>
+var span;                                           // Create variables to create elements
+var letter;
+
+for(i=0;i<bylineArr.length;i++){                    // Loop for every letter
+  span = document.createElement("span");            // Create a <span> element
+  letter = document.createTextNode(bylineArr[i]);   // Create the letter
+  if(bylineArr[i] == ' ') {                         // If the letter is a space...
+    byline.appendChild(letter);                     // ...Add the space without a span
+  } else {
+        span.appendChild(letter);                   // Add the letter to the span
+    byline.appendChild(span);                       // Add the span to the h2
+  }
+}
+
+
+</script>      
+</body>
+</html>

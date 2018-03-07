@@ -1,39 +1,230 @@
+@keyframes spinsun {
+  0% { transform: rotate(0); }
+  100%   { transform: rotate(-360deg); }
+}
+
+/* Keep planet image flat */
+@keyframes anti-spin {
+  from { transform: rotateY(0); }
+  to   { transform: rotateY(-360deg); }
+}
+@keyframes anti-spin-rings {
+  from { transform: rotateY(0) rotateX(73deg); }
+  to   { transform: rotateY(-360deg) rotateX(73deg); }
+}
+
+/* scene wrapper */
+.wrapper{
+  position:relative;
+  margin: 0 auto;
+  display:block;
+  margin-top: 200px;
+  perspective: 1000px;
+    perspective-origin: 60% 50%;
+  transform: rotate(-10deg);
+  
+}
+.wrapper > div {
+  position: relative;
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  height: 0px;
+}
+.sun {
+  width: 500px;
+  top: 0px;
+  z-index: 1;
+  height: 250px !important;
+  opacity: .5;
+  
+}
+.sun  {
+  width: 250px;
+  height: 250px;
+  background: url(http://www.waynedunkley.com/img/solar_system/sun.png) no-repeat;
+  background-size: cover;
+  border-radius: 250px;
+  margin: 0 auto;
+  animation: spinsun 40s infinite linear;
+}
+/***  .planet {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  animation-iteration-count: infinite;
+  overflow:hidden;
+}
+.shadow {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  background: transparent url(http://www.waynedunkley.com/img/solar_system/shadow.png) 0% 0% no-repeat;
+  background-size: cover;
+  border-radius: 100%;
+}
+.jupiter {
+  position: absolute;
+  width: 1100px;
+  z-index:6;
+  animation: orbitjupiter 20s infinite linear;
+  top: -64px;
+}
+.jupiter .planet {
+  width:128px;
+  height:128px;
+  background-image: url(http://www.waynedunkley.com/img/solar_system/sun.png);
+  animation: anti-spin 20s infinite linear;
+}
+.jupiter .shadow {
+  animation: shadow 20s infinite linear;
+}***/
+
+
+
+/* STAR WARS Animation properties */
+.star {
+  animation: star 10s ;
+}
+.wars {
+  animation: wars 10s ;
+}
+.byline span {
+  animation: spin-letters 7.5s linear infinite;
+}
+.byline {
+  animation: move-byline 7.5s linear infinite;
+}
+
+/* Keyframes */
+@keyframes star {
+  0% {
+    opacity: 0;
+    transform: scale(1.5) translateY(-0.75em);
+  }
+  20% {
+    opacity: 1;
+  }
+  89% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateZ(-1000em);
+  }
+}
+
+@keyframes wars {
+  0% {
+    opacity: 0;
+    transform: scale(1.5) translateY(0.5em);
+  }
+  20% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateZ(-1000em);
+  }
+}
+
+@keyframes spin-letters {
+  0%, 10% {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+  30% {
+    opacity: 1;
+  }
+  70%, 86% {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes move-byline {
+  0% {
+    transform: translateZ(5em);
+  }
+  100% {
+    transform: translateZ(0);
+  }
+}
+
+/* Make the 3D work on the container */
+.starwars-demo {
+  perspective: 800px;
+  transform-style: preserve3d;
+}
+
+/* General styles and layout */
 body {
-    background-image: URL("../images/bobaback.jpg")
+  background: url(http://cssanimation.rocks/demo/starwars/images/bg.jpg);
+}
+
+.starwars-demo {
+  height: 17em;
+  left: 50%;
+  position: absolute;
+  top: 53%;
+  transform: translate(-50%, -50%);
+  width: 34em;
+}
+
+.byline span {
+  display: inline-block;
+}
+
+img {
+  width: 100%;
+}
+
+.star, .wars, .byline {
+  position: absolute;
+}
+
+.star {
+  top: -1.25em;
+}
+
+.wars {
+  bottom: -1em;
 }
 
 
-.brand-logo {
-    margin-left: 100px;
+.byline {
+  color: rgb(209, 209, 209);
+  font-family: "ITC Serif Gothic", Lato;
+  font-size: 2.25em;
+  left: -2em;
+  letter-spacing: 0.4em;
+  right: -2em;
+  text-align: center;
+  text-transform: uppercase;
+  top: 29%;
 }
-.navbarright {
-    margin-right: 100px;
+
+/*** Media queries for adjusting to different screen sizes ***/
+
+@media only screen and (max-width: 600px) {
+  .starwars-demo {
+    font-size: 10px;
+  }
 }
-.bigboy {
-    text-align: center;
-    font-family: 'Mina', sans-serif;
-    font-size: 100px;
-    color: orange;
-    font-weight: 750;
-    margin: 75px;
+
+@media only screen and (max-width: 480px) {
+  .starwars-demo {
+    font-size: 7px;
+  }
 }
-* {
-    font-family: 'Mina', sans-serif;    
-   }
-.vs {
-    color: orange;
-}
-.card-content {
-    color: white;
-}
-.hoth-btn {
-    float: left;
-    margin: 5px;
-    margin-top: 300px;
-    width: 150px;
-}
-.mustafar-btn {
-    float: right;
-   margin: 5px;
-   margin-top: 300px;
-}
+
+/*** Button ***/
