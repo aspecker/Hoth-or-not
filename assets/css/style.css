@@ -1,9 +1,10 @@
 body {
     background-image: URL("../images/starsalign.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center; 
-    background-size: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+    background-size: 100% 100%;
 }
 
 
