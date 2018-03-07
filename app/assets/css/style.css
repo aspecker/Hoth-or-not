@@ -1,0 +1,55 @@
+body {
+    background-image: URL("../images/starsalign.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-size: 100%;
+}
+.navbarright {
+    margin-right: 100px;
+}
+.bigboy {
+    text-align: center;
+    font-family: 'Mina', sans-serif;
+    font-size: 5em;
+    color: orange;
+    font-weight: 750;
+    margin: 75px;
+    text-shadow: 1px 1px 2px black, 0 0 25px white, 0 0 5px yellow;
+    text-decoration: underline, bold;
+}
+* {
+    font-family: 'Mina', sans-serif;    
+   }
+.vs {
+    color: orange;
+}
+.card-content {
+    color: white;
+}
+.hoth-btn {
+    float: left;
+    margin: 5px;
+    margin-top: 300px;
+    width: 150px;
+}
+.mustafar-btn {
+    float: right;
+   margin: 5px;
+   margin-top: 300px;
+}
+.charshadow {
+    text-shadow: 1px 1px 2px black, 0 0 25px white, 0 0 5px yellow;
+}
+.cardopacity {
+    background: rgba(76, 80, 175, 0.3)
+}
+body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+    
+      main {
+        flex: 1 0 auto;
+      }
