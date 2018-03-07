@@ -20,7 +20,9 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "fs": "0.0.1-security",
     "giphy-api": "^1.2.7",
+    "path": "^0.12.7",
     "request": "^2.83.0",
     "swapi-node": "^0.4.3"
   }
