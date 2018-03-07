@@ -1,5 +1,9 @@
 body {
     background-image: URL("../images/starsalign.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-size: 100%;
 }
 
 
@@ -43,4 +47,14 @@ body {
     text-shadow: 1px 1px 2px black, 0 0 25px white, 0 0 5px yellow;
 }
 .cardopacity {
-    background: rgba(76, 80, 175, 0.3)}
+    background: rgba(76, 80, 175, 0.3)
+}
+body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+    
+      main {
+        flex: 1 0 auto;
+      }
