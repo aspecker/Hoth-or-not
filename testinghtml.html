@@ -22,10 +22,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
         <script>
-            //var fs = require('fs');
-
-
-
+            
             // var characters = ["yoda", "porg", "luke", "han", "lando", "rey", "poe", "finn", "mace_windu", "amidala", "qui-gon", "chewbacca",
             //                     "wicket_warrick", "r2-d2", "ackbar", "leia", "anakin", "palpatine", "general_grevious", "count_dooku",
             //                     "greedo", "jabba_the_hutt", "boba_fett", "jango_fett", "snoke", "darth_maul", "phasma", "tusken_raider", "darth_vader",
@@ -37,7 +34,6 @@
                                 false, false, false, false, false, false, false, false, false, false, false, false, false];
             var current_char = 0;
             var person = (characters[current_char]);
-            // firebase.initializeApp(config);
             var config = {
                 apiKey: "AIzaSyDqMMiRCJqUOw2BGZe3UETcuBPDFyHIn04",
                 authDomain: "hoth-or-not-d14ab.firebaseapp.com",
@@ -54,7 +50,6 @@
             var notCount = 0;
             var totalVotes = 0;
 
-            // $(".mustifar-btn").on("click", function() {
             function fire() {
                 event.preventDefault();
                 var gamma = $(this).attr("data-Hvalue");
@@ -160,16 +155,20 @@
             }
 
             function checker() {
-                if (current_char == 28) {
-                    // go to results page
+                if (current_char == 27) {
+                    console.log(user_picks);
                 }
-                else if (current_char < 28) {
+                else if (current_char < 27) {
                     generate()
                 }
             }
             $(document).on("click", ".hoth-btn", ice);
             $(document).on("click", ".mustifar-btn", fire);
             generate();
+
+            
+
+
         </script>
     </body>
    
