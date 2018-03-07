@@ -93,11 +93,11 @@ checker();
 
 
 function generate() {
-$("#mustifar-btn").empty();
+$("#mustafar-btn").empty();
 var nextHotBtn = $("<button>");
+nextHotBtn.addClass("mustafar-btn");
 nextHotBtn.attr("data-Hvalue", person);
-nextHotBtn.text("Hot!");
-nextHotBtn.addClass("mustifar-btn")
+nextHotBtn.text("Mustafar");
 $("#mustifar-btn").html(nextHotBtn); 
 //  console.log("---------------");
 //  console.log(person); 
@@ -108,8 +108,9 @@ getImage(person);
 
 $("#hoth-btn").empty();
 var nextColdBtn = $("<button>");
+nextColdBtn.addClass("hoth-btn");
 nextColdBtn.attr("data-Cvalue", person);
-nextColdBtn.text("Not!");
+nextColdBtn.text("Hoth!");
 nextColdBtn.addClass("hoth-btn");
 //console.log(nextColdBtn);
 $("#hoth-btn").html(nextColdBtn);                   
@@ -133,10 +134,10 @@ $.get('/api/characters', function (data){
 for (var i =0;i<data.length;i++){
 if (data[i].name.indexOf(charname)>-1){
 console.log(data[i]);
-$('#imgDiv').empty();
+$('#img-div').empty();
 var newImg = $('<img>');
 newImg.attr('src',data[i].url);
-$('#imgDiv').append(newImg);
+$('#img-div').append(newImg);
 }
 }
 })
