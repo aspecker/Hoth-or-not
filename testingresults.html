@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>testing</title>
+        <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+
+    </head>
+    <body>
+        <h1>hello world</h1>
+
+        <!-- <h1>Ouch! You've clicked me <span id="click-value-hot" ></span> times hot!</h1> -->
+        <!-- <h1>Ouch! You've clicked me <span id="click-value-not" ></span> times not!</h1> -->
+        <!-- Button -->
+        <div id="mustifar-btn">
+            <button data-Hvalue="">Click Me Hot!!!!!</button>
+        </div>
+        <div id="hoth-btn">
+            <button data-Cvalue="">Click Me Not!!!!!</button>
+        </div>  
+        <div id="data_dump_1">
+
+        </div>
+        <p>----------------------------------------------------</p>
+        <div id="data_dump_2">
+
+        </div>
+                
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script>
+            
+            // var characters = ["yoda", "porg", "luke", "han", "lando", "rey", "poe", "finn", "mace_windu", "amidala", "qui-gon", "chewbacca",
+            //                     "wicket_warrick", "r2-d2", "ackbar", "leia", "anakin", "palpatine", "general_grevious", "count_dooku",
+            //                     "greedo", "jabba_the_hutt", "boba_fett", "jango_fett", "snoke", "darth_maul", "phasma", "tusken_raider", "darth_vader",
+            //                     "jar_jar_binks", "kylo_ren"];
+            var characters = ["test", "yoda", "luke", "han", "lando", "rey", "poe", "finn", "windu", "amidala", "qui-gon", "chewbacca",
+                                "r2-d2", "ackbar", "leia", "anakin", "palpatine", "greedo", "jabba", "maul", "vader","binks",
+                                "wicket","grievous", "dooku","boba","jango"];
+            var user_picks = [false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                                false, false, false, false, false, false, false, false, false, false, false, false, false];
+            var current_char = 0;
+            var person = (characters[current_char]);
+            var config = {
+                apiKey: "AIzaSyDqMMiRCJqUOw2BGZe3UETcuBPDFyHIn04",
+                authDomain: "hoth-or-not-d14ab.firebaseapp.com",
+                databaseURL: "https://hoth-or-not-d14ab.firebaseio.com",
+                projectId: "hoth-or-not-d14ab",
+                storageBucket: "hoth-or-not-d14ab.appspot.com",
+                messagingSenderId: "273129403707"
+             };
+            firebase.initializeApp(config);
+            
+            var database = firebase.database();
+            
+            // function generate() {
+            //      console.log("---------------");
+            //      console.log(person); 
+                 
+            //      $("#hoth-btn").empty();
+            //      var nextColdBtn = $("<button>");
+            //      nextColdBtn.attr("data-Cvalue", person);
+            //      nextColdBtn.text("Not!");
+            //      nextColdBtn.addClass("hoth-btn");
+            //      //console.log(nextColdBtn);
+            //      $("#hoth-btn").html(nextColdBtn);                   
+            // }
+
+            // $(document).on("click", ".hoth-btn", ice);
+            // generate();
+//----------------------------------------------------------------------------------------------------------------------------------
+            var returnScore = () => {
+                database.ref().on("value", function(snapshot) {
+                    //var gamma = ($(this).attr("Hvalue") + ".hot");
+                    // $("#click-value-not").text(snapshot.val().beta);
+                    
+                    //hotCount = snapshot.val()[gamma].hot;
+                    //notCount = snapshot.val()[gamma].not;
+                   // totalVotes = snapshot.val()[gamma].total;
+
+                    
+                        for (var i=1;i<characters.length;i++){
+                            var gamma = characters[i];
+                            var choice = "";
+                            var hot = snapshot.val()[gamma].hot;
+                            var total = snapshot.val()[gamma].total;
+                            var percent = ((hot/total)*100).toFixed(2);
+                            var character = characters[i].charAt(0).toUpperCase() + characters[i].slice(1);
+                            if (user_picks[i]===false){
+                                choice = 'Hoth';
+                            } else {
+                                choice = 'Mustafar';
+                            }
+                            var result = (`Character: ${character}  || You voted: ${choice}  ||  Total Hotness Score: ${percent}%`);
+                            var nextResult = $("<h3>");
+                            nextResult.text(result);
+                            if (i<=14){
+                                $("#data_dump_1").append(nextResult);
+                            }
+                            else if (i>14) {
+                                $("#data_dump_2").append(nextResult);
+                            }
+                        }
+                   
+
+                }, function(errorObject) {
+                    console.log("The read failed: " + errorObject.code);
+                });
+            }
+
+            returnScore();
+
+        </script>
+    </body>
+   
+</html>
+
+
+<!-- user choices vs world choices -->
