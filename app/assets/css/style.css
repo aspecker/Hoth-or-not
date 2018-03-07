@@ -53,3 +53,227 @@ body {
       main {
         flex: 1 0 auto;
       }
+
+/* LANDING PAGE ANIMATION CSS */
+@keyframes spinsun {
+    0% { transform: rotate(0); }
+    100%   { transform: rotate(-360deg); }
+  }
+  
+  /* Keep planet image flat */
+  @keyframes anti-spin {
+    from { transform: rotateY(0); }
+    to   { transform: rotateY(-360deg); }
+  }
+  @keyframes anti-spin-rings {
+    from { transform: rotateY(0) rotateX(73deg); }
+    to   { transform: rotateY(-360deg) rotateX(73deg); }
+  }
+  
+  /* scene wrapper */
+  .wrapper{
+    position:relative;
+    margin: 0 auto;
+    display:block;
+    margin-top: 200px;
+    perspective: 1000px;
+      perspective-origin: 60% 50%;
+    transform: rotate(-10deg);
+    
+  }
+  .wrapper > div {
+    position: relative;
+    margin: 0 auto;
+    transform-style: preserve-3d;
+    height: 0px;
+  }
+  .sun {
+    width: 500px;
+    top: 0px;
+    z-index: 1;
+    height: 250px !important;
+    opacity: .5;
+    
+  }
+  .sun  {
+    width: 250px;
+    height: 250px;
+    background: url(http://www.waynedunkley.com/img/solar_system/sun.png) no-repeat;
+    background-size: cover;
+    border-radius: 250px;
+    margin: 0 auto;
+    animation: spinsun 40s infinite linear;
+  }
+  /* STAR WARS Animation properties */
+  .star {
+    animation: star 10s ;
+  }
+  .wars {
+    animation: wars 10s ;
+  }
+  .byline span {
+    animation: spin-letters 7.5s linear infinite;
+  }
+  .byline {
+    animation: move-byline 7.5s linear infinite;
+  }
+  
+  /* Keyframes */
+  @keyframes star {
+    0% {
+      opacity: 0;
+      transform: scale(1.5) translateY(-0.75em);
+    }
+    20% {
+      opacity: 1;
+    }
+    89% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateZ(-1000em);
+    }
+  }
+  
+  @keyframes wars {
+    0% {
+      opacity: 0;
+      transform: scale(1.5) translateY(0.5em);
+    }
+    20% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateZ(-1000em);
+    }
+  }
+  
+  @keyframes spin-letters {
+    0%, 10% {
+      opacity: 0;
+      transform: rotateY(90deg);
+    }
+    30% {
+      opacity: 1;
+    }
+    70%, 86% {
+      transform: rotateY(0);
+      opacity: 1;
+    }
+    95%, 100% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes move-byline {
+    0% {
+      transform: translateZ(5em);
+    }
+    100% {
+      transform: translateZ(0);
+    }
+  }
+  
+  /* Make the 3D work on the container */
+  .starwars-demo {
+    perspective: 800px;
+    transform-style: preserve3d;
+  }
+  
+  /* General styles and layout */
+  body {
+    background: url(http://cssanimation.rocks/demo/starwars/images/bg.jpg);
+  }
+  
+  .starwars-demo {
+    height: 17em;
+    left: 50%;
+    position: absolute;
+    top: 53%;
+    transform: translate(-50%, -50%);
+    width: 34em;
+  }
+  
+  .byline span {
+    display: inline-block;
+  }
+  
+  img {
+    width: 100%;
+  }
+  
+  .star, .wars, .byline {
+    position: absolute;
+  }
+  
+  .star {
+    top: -1.25em;
+  }
+  
+  .wars {
+    bottom: -1em;
+  }
+  
+  
+  .byline {
+    color: rgb(209, 209, 209);
+    font-family: "ITC Serif Gothic", Lato;
+    font-size: 2.25em;
+    left: -2em;
+    letter-spacing: 0.4em;
+    right: -2em;
+    text-align: center;
+    text-transform: uppercase;
+    top: 29%;
+  }
+  
+  /*** Media queries for adjusting to different screen sizes ***/
+  
+  @media only screen and (max-width: 600px) {
+    .starwars-demo {
+      font-size: 10px;
+    }
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .starwars-demo {
+      font-size: 7px;
+    }
+  }
+  #button {
+    display: block;
+    width: 100%; 
+    border: none;
+    background-color: rgb(255,215,0);
+    color: whitesmoke;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    opacity: .70;
+}
+
+#button:hover {
+    background-color: rgb(108, 226, 255);
+    color: black;
+}
+
+a {
+    color: black;
+    font-size: 30px;
+    font-family: 'Geostar Fill', cursive;
+}
+
+h2 {
+  font-size: 40px;
+}
+  
+
+  

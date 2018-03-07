@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hoth || Not</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Krona+One|Mina" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+
+<link rel="icon" href="https://vignette.wikia.nocookie.net/starwars/images/9/9d/DSI_hdapproach.png/revision/latest?cb=20130221005853">
+</head>
+<body>
+
+<div id="button"><a href="/game">Start</a></div>
+
+<div class="starwars-demo">
+    <img src="https://cssanimation.rocks/demo/starwars/images/star.svg" alt="Star" class="star">
+    <img src="https://cssanimation.rocks/demo/starwars/images/wars.svg" alt="Wars" class="wars">
+    <h2 class="byline" id="byline">Hoth or Not</h2>
+</div>
+            
+<ul class="wrapper">
+    <div class="sun">
+        <div class="star"></div>
+    </div>
+</ul>
+
+
+<!--Linking JavaScript-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+<script>
+var byline = document.getElementById('byline');     // Find the H2
+bylineText = byline.innerHTML;                      // Get the content of the H2
+bylineArr = bylineText.split('');                   // Split content into array
+byline.innerHTML = '';                              // Empty current content
+
+var span;                                           // Create variables to create elements
+var letter;
+
+for(i=0;i<bylineArr.length;i++){                    // Loop for every letter
+  span = document.createElement("span");            // Create a <span> element
+  letter = document.createTextNode(bylineArr[i]);   // Create the letter
+  if(bylineArr[i] == ' ') {                         // If the letter is a space...
+    byline.appendChild(letter);                     // ...Add the space without a span
+  } else {
+        span.appendChild(letter);                   // Add the letter to the span
+    byline.appendChild(span);                       // Add the span to the h2
+  }
+}
+
+
+</script>      
+</body>
+</html>

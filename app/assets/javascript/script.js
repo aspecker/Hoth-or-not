@@ -1,90 +1,143 @@
-const swapi = require('swapi-node');
-var giphyKey = '8M2UHf1IMhGeVjJh9FucWYCaTAmV2gKs';
-const giphy = require('giphy-api')(giphyKey);
+var characters = ["test", "yoda", "luke", "han", "lando", "rey", "poe", "finn", "windu", "amidala", "qui-gon", "chewbacca",
+"r2-d2", "ackbar", "leia", "anakin", "palpatine", "greedo", "jabba", "maul", "vader","binks",
+"wicket","grievous", "dooku","boba","jango"];
+var user_picks = [false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+false, false, false, false, false, false, false, false, false, false, false, false, false];
+var current_char = 0;
+var person = (characters[current_char]);
 
-var char = process.argv[2];
-
-var userVotes = [false,true,false,false];
-var characters = ['test',"yoda", "luke", "han", "lando", "rey", "poe", "finn", "windu", "amidala", "qui-gon", "chewbacca", "r2-d2", "ackbar", "leia", "anakin", "palpatine", "greedo", "jabba", "maul", "vader","binks","wicket","grievous", "dooku","boba","jango"];
-var charArr = [
-    {
-        name: 'luke',
-        hot: 10,
-        not: 5
-    },
-    {
-        name: 'vader',
-        hot: 3,
-        not: 14
-    },
-    {
-        name: 'han',
-        hot: 15,
-        not: 1
-    },
-    {
-        name: 'leia',
-        hot: 17,
-        not: 0
-    }
-]
-
-// function for pulling character information from the SWAPI
-var charInfo = (character) =>{
-    swapi.get(`http://swapi.co/api/people/?search=${character}`).then((result) => {
-    console.log(`\nName: ${result.results[0].name}`);
-    console.log(`Gender: ${result.results[0].gender}`);
-    console.log(`Height: ${result.results[0].height} cm`);
-    console.log(`Mass: ${result.results[0].mass} kg`);
-    console.log(`Eye color: ${result.results[0].eye_color}`);
-    console.log(`Skin Color: ${result.results[0].skin_color}`);
-    console.log(`Birth Year: ${result.results[0].birth_year}`);
-
-    swapi.get(result.results[0].species[0].replace('https', 'http')).then((result)=>{
-        console.log(`Species: ${result.name}`);
-    });
-    swapi.get(result.results[0].homeworld.replace('https','http')).then((result)=>{
-        console.log(`Homeworld: ${result.name}`);
-    });
-    });
+var config = {
+apiKey: "AIzaSyDqMMiRCJqUOw2BGZe3UETcuBPDFyHIn04",
+authDomain: "hoth-or-not-d14ab.firebaseapp.com",
+databaseURL: "https://hoth-or-not-d14ab.firebaseio.com",
+projectId: "hoth-or-not-d14ab",
+storageBucket: "hoth-or-not-d14ab.appspot.com",
+messagingSenderId: "273129403707"
 };
-// charInfo(char);
+firebase.initializeApp(config);
 
-// for (var i=0;i<charArr.length;i++){
-//     charInfo(charArr[i].name);
-// }
+var database = firebase.database();
 
-// function for displaying user score and total score at the end of the game
-var returnScore = () => {
-    for (var i=0;i<charArr.length;i++){
-        var choice = "";
-        var hot = charArr[i].hot;
-        var total = charArr[i].hot +charArr[i].not;
-        var percent = Math.floor((hot/total)*100);
-        var character = charArr[i].name.charAt(0).toUpperCase() + charArr[i].name.slice(1);
-        if (userVotes[i]===false){
-            choice = 'Hoth';
-        } else {
-            choice = 'Mustafar';
-        }
-        console.log(`Character: ${character}  || You voted: ${choice}  ||  Total Hotness Score: ${percent}`);
-    }
+var hotCount = 0;
+var notCount = 0;
+var totalVotes = 0;
+
+function fire() {
+event.preventDefault();
+var gamma = $(this).attr("data-Hvalue");
+
+database.ref().on("value", function(snapshot) {
+
+hotCount = snapshot.val()[gamma].hot;
+notCount = snapshot.val()[gamma].not;
+totalVotes = snapshot.val()[gamma].total;
+//console.log(hotCount);
+//console.log(notCount);
+
+}, function(errorObject) {
+console.log("The read failed: " + errorObject.code);
+});
+
+console.log("MUSTIFAR");
+
+
+//console.log(gamma)
+hotCount++;
+totalVotes++;
+
+database.ref().child(gamma).set({
+hot: hotCount,
+not: notCount,
+total: totalVotes
+});
+
+user_picks[current_char] = true;
+current_char++;
+person = (characters[current_char]);
+checker();
+}; 
+
+function ice() {
+event.preventDefault();
+var gamma = $(this).attr("data-Cvalue");
+database.ref().on("value", function(snapshot) {
+
+hotCount = snapshot.val()[gamma].hot;
+notCount = snapshot.val()[gamma].not;
+totalVotes = snapshot.val()[gamma].total;
+//console.log(notCount);
+//console.log(notCount);
+}, function(errorObject) {
+console.log("The read failed: " + errorObject.code);
+});
+
+console.log("HOTH");
+
+//console.log(gamma + " pickles");
+//console.log(beta);
+notCount++;
+totalVotes++;
+database.ref().child(gamma).set({
+hot: hotCount,
+not: notCount,
+total: totalVotes
+});
+
+user_picks[current_char] = false;
+current_char++;
+person = (characters[current_char]);
+
+checker();
+};
+
+
+
+function generate() {
+$("#mustifar-btn").empty();
+var nextHotBtn = $("<button>");
+nextHotBtn.attr("data-Hvalue", person);
+nextHotBtn.text("Hot!");
+nextHotBtn.addClass("mustifar-btn")
+$("#mustifar-btn").html(nextHotBtn); 
+//  console.log("---------------");
+//  console.log(person); 
+
+// get image function being called
+getImage(person);
+
+
+$("#hoth-btn").empty();
+var nextColdBtn = $("<button>");
+nextColdBtn.attr("data-Cvalue", person);
+nextColdBtn.text("Not!");
+nextColdBtn.addClass("hoth-btn");
+//console.log(nextColdBtn);
+$("#hoth-btn").html(nextColdBtn);                   
 }
-returnScore();
 
-// returns a gif based on the character tag
-var gifMe = (character) =>{
-    giphy.search(character).then(function (res){
-        console.log(res.data[0].url);
-    });
+function checker() {
+if (current_char == 27) {
+console.log(user_picks);
 }
-// gifMe(char);
+else if (current_char < 27) {
+generate()
+}
+}
+$(document).on("click", ".hoth-btn", ice);
+$(document).on("click", ".mustifar-btn", fire);
+generate();
 
-// function that delivers the images to the page
 function getImage (charname) {
-for (var i =0;i<characters.length;i++){
-    if (characters[i].name.indexOf(charname>-1)){
-        
-    }
+// console.log(charname);
+$.get('/api/characters', function (data){
+for (var i =0;i<data.length;i++){
+if (data[i].name.indexOf(charname)>-1){
+console.log(data[i]);
+$('#imgDiv').empty();
+var newImg = $('<img>');
+newImg.attr('src',data[i].url);
+$('#imgDiv').append(newImg);
 }
+}
+})
 }
