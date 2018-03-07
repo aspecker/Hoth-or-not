@@ -7,6 +7,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">        
@@ -18,9 +19,8 @@
         <nav>
           <div class="nav-wrapper blue-grey darken-3">
 
-              <a href="/" class="brand-logo">
-                <img id="logo" src='/images/Hoth-or-not-logo.png'>
-              </a>
+              <a href="/" class="brand-logo center"><img class="logo" src='/images/Hoth-or-not-logo.png'></a>
+
               <ul id="nav-mobile" class="right hide-on-med-and-down navbarright">
                 <li><a href="/results">Overall Stats</a></li>
               </ul>
@@ -30,32 +30,50 @@
       </header>
 
     <main>
-        <h1 class="bigboy">Hoth or Not</h1>
 
         <div class="container">
             
           <div class="row">
                         
             <div class="col s12 m4">
-              <div id = 'img-div'></div>
+              <div id = 'img-div'><img class='char-img' src='https://imgur.com/deRIvua.jpg'></div>
             </div>
                 
 
-            <div class="col s6 m4">
+            <div class="col s12 m4">
 
-              <div class = "col s6 m6" id="hoth-btn">
-                  <a class="waves-effect waves-light btn-large hoth-btn valign-wrapper blue lighten-2">Hoth</a>
-              </div>
-                          
-              <div class = "col s6 m6 center-wrapper" id="mustafar-btn">
-                  <a class="waves-effect waves-light btn-large mustafar-btn red darken-4">Mustafar</a>
-              </div>
+                <div class = 'row'>
+                  <div class = 'col s12 m12'>
+                    <div id="mustafar-btn">
+                      <a class="waves-effect waves-light btn-large mustafar-btn red darken-4">Mustafar</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class = 'row'>
+                  <div class = 'col s12 m12'>
+                    <div class='center-wrapper' id="hoth-btn">
+                      <a class="waves-effect waves-light btn-large hoth-btn valign-wrapper blue lighten-2">Hoth</a>
+                    </div>
+                  </div>
+                </div>
+
             </div>
                         
-            <div class="col s12 m4">
+            <div id='info-div' class="col s12 m4">
               <div class="card blue-grey darken-1 cardopacity">
                 <div class="card-content white-text">
-                                I contain character information.
+                                I contain character information.  
+                                I contain character information.  
+                                I contain character information.  
+                                I contain character information.  
+                                I contain character information.  
+                                I contain character information.  
+                                I contain character information.  
+                                I contain character information.  
+                                I contain character information.  
+                                I contain character information.  
+                                I contain character information.  
                 </div>          
               </div>
             </div>   
@@ -67,15 +85,10 @@
     </main>
 
      
-    <footer class="page-footer blue-grey darken-3">
-      
-      <div class="footer-copyright">
-        <div class="container">
+    <footer class="page-footer blue-grey darken-3"> 
           <div class="row">
-        © 2018 HOTH || NOT
+        © 2018 Hoth or Not
           </div>
-        </div>
-      
     </footer>
               
 

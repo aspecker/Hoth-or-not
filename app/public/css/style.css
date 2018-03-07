@@ -4,39 +4,15 @@ body {
     background-attachment: fixed;
     background-position: center; 
     background-size: 100%;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 .navbarright {
     margin-right: 100px;
 }
-.bigboy {
-    text-align: center;
-    font-family: 'Mina', sans-serif;
-    font-size: 5em;
-    color: orange;
-    font-weight: 750;
-    margin: 75px;
-    text-shadow: 1px 1px 2px black, 0 0 25px white, 0 0 5px yellow;
-    text-decoration: underline, bold;
-}
-* {
-    font-family: 'Mina', sans-serif;    
-   }
-.vs {
-    color: orange;
-}
 .card-content {
     color: white;
-}
-.hoth-btn {
-    float: left;
-    margin: 5px;
-    margin-top: 300px;
-    width: 150px;
-}
-.mustafar-btn {
-    float: right;
-   margin: 5px;
-   margin-top: 300px;
 }
 .charshadow {
     text-shadow: 1px 1px 2px black, 0 0 25px white, 0 0 5px yellow;
@@ -44,22 +20,34 @@ body {
 .cardopacity {
     background: rgba(76, 80, 175, 0.3)
 }
-body {
-        display: flex;
-        min-height: 100vh;
-        flex-direction: column;
-      }
-    
-      main {
-        flex: 1 0 auto;
-      }
+main {
+    flex: 1 0 auto;
+}
+.page-footer{
+  text-align: center;
+  padding-top: -40px;
+}
+#img-div{
+  padding-top: 60px;
+}
+#info-div{
+  padding-top: 52px;
+}
+.char-img{
+  border: solid 1px black;
+  border-radius: 5%;
+}
+.data_dump{
+  margin-top: 80px;
+}
+
+
 
 /* LANDING PAGE ANIMATION CSS */
 @keyframes spinsun {
     0% { transform: rotate(0); }
     100%   { transform: rotate(-360deg); }
   }
-  
   /* Keep planet image flat */
   @keyframes anti-spin {
     from { transform: rotateY(0); }
@@ -69,7 +57,6 @@ body {
     from { transform: rotateY(0) rotateX(73deg); }
     to   { transform: rotateY(-360deg) rotateX(73deg); }
   }
-  
   /* scene wrapper */
   .wrapper{
     position:relative;
@@ -78,8 +65,7 @@ body {
     margin-top: 200px;
     perspective: 1000px;
       perspective-origin: 60% 50%;
-    transform: rotate(-10deg);
-    
+    transform: rotate(-10deg); 
   }
   .wrapper > div {
     position: relative;
@@ -93,7 +79,6 @@ body {
     z-index: 1;
     height: 250px !important;
     opacity: .5;
-    
   }
   .sun  {
     width: 250px;
@@ -117,7 +102,6 @@ body {
   .byline {
     animation: move-byline 7.5s linear infinite;
   }
-  
   /* Keyframes */
   @keyframes star {
     0% {
@@ -136,7 +120,6 @@ body {
       transform: translateZ(-1000em);
     }
   }
-  
   @keyframes wars {
     0% {
       opacity: 0;
@@ -154,7 +137,6 @@ body {
       transform: translateZ(-1000em);
     }
   }
-  
   @keyframes spin-letters {
     0%, 10% {
       opacity: 0;
@@ -171,7 +153,6 @@ body {
       opacity: 0;
     }
   }
-  
   @keyframes move-byline {
     0% {
       transform: translateZ(5em);
@@ -180,18 +161,15 @@ body {
       transform: translateZ(0);
     }
   }
-  
   /* Make the 3D work on the container */
   .starwars-demo {
     perspective: 800px;
     transform-style: preserve3d;
   }
-  
   /* General styles and layout */
   body {
     background: url(http://cssanimation.rocks/demo/starwars/images/bg.jpg);
   }
-  
   .starwars-demo {
     height: 17em;
     left: 50%;
@@ -200,23 +178,18 @@ body {
     transform: translate(-50%, -50%);
     width: 34em;
   }
-  
   .byline span {
     display: inline-block;
   }
-  
   img {
     width: 100%;
   }
-  
   .star, .wars, .byline {
     position: absolute;
   }
-  
   .star {
     top: -1.25em;
   }
-  
   .wars {
     bottom: -1em;
   }
