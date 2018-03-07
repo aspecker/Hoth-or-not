@@ -1,5 +1,5 @@
 body {
-    background-image: URL("../images/bobaback.jpg")
+    background-image: URL("../images/starsalign.jpg");
 }
 
 
@@ -12,10 +12,12 @@ body {
 .bigboy {
     text-align: center;
     font-family: 'Mina', sans-serif;
-    font-size: 100px;
+    font-size: 125px;
     color: orange;
     font-weight: 750;
     margin: 75px;
+    text-shadow: 1px 1px 2px black, 0 0 25px white, 0 0 5px yellow;
+    text-decoration: underline, bold;
 }
 * {
     font-family: 'Mina', sans-serif;    
@@ -37,3 +39,8 @@ body {
    margin: 5px;
    margin-top: 300px;
 }
+.charshadow {
+    text-shadow: 1px 1px 2px black, 0 0 25px white, 0 0 5px yellow;
+}
+.cardopacity {
+    background: rgba(76, 80, 175, 0.3)}
