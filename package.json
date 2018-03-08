@@ -4,7 +4,8 @@
   "description": "* learn firebase\r * learn motionsoft and determine which features we will add\r * create html files according to wireframe\r * figure out how we will organize the data\r *",
   "main": "testingjs.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
