@@ -64,6 +64,8 @@ main {
 .page-footer{
   opacity: 0.55;
 }
+
+/* mobile compatibility media queries*/
 @media only screen and (max-width: 615px) {
   .mustafar-btn{
     margin-top: 5px;
@@ -249,7 +251,7 @@ main {
   }
   #button {
     display: block;
-    width: 100%; 
+    width: 25%; 
     border: none;
     background-color: rgb(255,215,0);
     color: whitesmoke;
@@ -258,19 +260,28 @@ main {
     cursor: pointer;
     text-align: center;
     opacity: .70;
+    border-radius: 15px 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 80%;
+    left: 38%;
 }
-
+.startBtn {
+  color: black;
+  font-size: 30px;
+  font-family: 'Krona One', sans-serif;
+}
 #button:hover {
     background-color: rgb(108, 226, 255);
     color: black;
 }
-
 a {
     color: black;
     font-size: 30px;
     font-family: 'Geostar Fill', cursive;
 }
-
 h2 {
   font-size: 40px;
 }

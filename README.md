@@ -1,9 +1,10 @@
 # Hoth or Not
 ## Timour, Mike, Chris and Adam
 
-* Note- ask jared to break down get/post requests
-* ask him why they are both named post
-        
+## THANK YOU
+* Thank you to SWAPI for providing us a wealth of information for our characters
+* Thank you to George Lucas/Disney for building and developing the universe we love so much
+* Thank you, user, for your interest in our project. We hope you had fun and had some laughs
 
 ### Thursday 3/8/18
 * work on using client side logic to make SWAPI call-> AJAX can be used if neccessary
@@ -40,7 +41,6 @@
 * when clicking either of the images, log the user vote and display a new pair of images
 * when clicking the 'learn more' button, link to a new page that has information about that character pulled from star wars API
 * when clicking the 'bonus' button, link to a new page that will have functionality TBD
-
 
 #### Documentation and planning
 * Wire frames
