@@ -4,7 +4,7 @@ var characters = ["test", "yoda", "luke", "han", "lando", "rey", "poe", "finn", 
                     "wicket","grievous", "dooku","boba","jango",'ayla','ki-adi','obi-wan','kit'];
 // dummy array that will be replaced by user picks
 var user_picks = [false, false, false, false, false, false, false, false, false, false, false, false, false, false,
-                    false, false, false, false, false, false, false, false, false, false, false, false, false,false,false,false,false,false];
+                    false, false, false, false, false, false, false, false, false, false, false, false, false,false,false,false,false];
 var current_char = 0;
 var person = (characters[current_char]);
 
@@ -120,7 +120,7 @@ function checker() {
 var charInfo = (character) =>{
     if (current_char ==0){
         // displays initial readout for 'test' case at index 0
-        $('#info-div').html('<h3>Click either button to get started!</h3>')
+        $('#info-div').html("<h5>Click either button to get started!</h5> <h5>Mustafar for Hot, and Hoth for Not.</h5>")
     } else {
     $.ajax({
         url: `https://swapi.co/api/people/?search=${character}`,
@@ -198,6 +198,7 @@ var returnScore = () => {
     database.ref().on("value", function(snapshot) {     
         $('#data_dump_1').empty();
         $('#data_dump_2').empty();    
+        $('#allVotes').empty();
             for (var i=1;i<characters.length;i++){
                 var gamma = characters[i];
                 var choice = "";
@@ -214,11 +215,15 @@ var returnScore = () => {
                 var hotness = (`Total Hotness Score: ${percent}%`)
                 var nextResult = $("<p>");
                 var nextHotness = $("<p>");
+                // var allVotes = snapshot.val()[characters[i].total];
                 nextResult.addClass('voteResult');
                 nextResult.text(result);
                 nextHotness.addClass ('hotResult');
                 nextHotness.text(hotness);
-                var lineBump = $('<br>');
+                // var voteTally = $("<h5>");
+                // voteTally.addClass('totalVotes');
+                // voteTally.text(`${allVotes} users have voted`);
+                // $('#allVotes').append(voteTally);
                 if (i<=15){
                     $("#data_dump_1").append(nextResult);
                     $("#data_dump_1").append(nextHotness);
@@ -227,7 +232,6 @@ var returnScore = () => {
                     $("#data_dump_2").append(nextResult);
                     $("#data_dump_2").append(nextHotness);
                 }
-                
             }
     }, function(errorObject) {
         console.log("The read failed: " + errorObject.code);
