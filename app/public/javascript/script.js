@@ -1,10 +1,10 @@
 // declare array to rotate through
 var characters = ["test", "yoda", "luke", "han", "lando", "rey", "poe", "finn", "windu", "amidala", "qui-gon", "chewbacca",
                     "r2-d2", "ackbar", "leia", "anakin", "palpatine", "greedo", "jabba", "maul", "vader","binks",
-                    "wicket","grievous", "dooku","boba","jango"];
+                    "wicket","grievous", "dooku","boba","jango",'ayla','ki-adi','obi-wan','kit'];
 // dummy array that will be replaced by user picks
 var user_picks = [false, false, false, false, false, false, false, false, false, false, false, false, false, false,
-                    false, false, false, false, false, false, false, false, false, false, false, false, false];
+                    false, false, false, false, false, false, false, false, false, false, false, false, false,false,false,false,false,false];
 var current_char = 0;
 var person = (characters[current_char]);
 
@@ -82,7 +82,6 @@ function ice(event) {
     person = (characters[current_char]);
     checker();
 };
-
 // function to generate the information, image, and buttons for the next character
 function generate() {
     // Generate 'Hot' Button
@@ -106,7 +105,6 @@ function generate() {
     charInfo(person);
           
 }
-
 // checks if at the end of the character array
 function checker() {
     // if at end of array route to results page
@@ -177,18 +175,22 @@ var charInfo = (character) =>{
 // delivers an image based on the character name from our charObj.js
 function getImage (charname) {
     $.get('/api/characters', function (data){
+        console.log(data);
         for (var i =0;i<data.length;i++){
             if (data[i].name.indexOf(charname)>-1){
+                if (charname==='obi-wan'){
+                    Materialize.toast('Hello there!', 3500)
+                }
                 $('#img-div').empty();
                 var newImg = $('<img>');
                 newImg.addClass('char-img')
                 newImg.attr('src',data[i].url);
                 $('#img-div').append(newImg);
+                
             }
         }
     })
 }
-
 // runs when the last characted is voted on, and outputs the users votes and all-user votes taken from firebase
 var returnScore = () => {
     user_picks = JSON.parse(localStorage.getItem('votes'))
@@ -208,24 +210,28 @@ var returnScore = () => {
                 } else {
                     choice = 'Mustafar';
                 }
-                var result = (`${character}  || You voted: ${choice}  ||  Total Hotness Score: ${percent}%`);
+                var result = (`${character}  || You voted: ${choice}`);
+                var hotness = (`Total Hotness Score: ${percent}%`)
                 var nextResult = $("<p>");
+                var nextHotness = $("<p>");
                 nextResult.addClass('voteResult');
                 nextResult.text(result);
-                if (i<=14){
+                nextHotness.addClass ('hotResult');
+                nextHotness.text(hotness);
+                var lineBump = $('<br>');
+                if (i<=15){
                     $("#data_dump_1").append(nextResult);
+                    $("#data_dump_1").append(nextHotness);
                 }
-                else if (i>14) {
+                else if (i>15) {
                     $("#data_dump_2").append(nextResult);
+                    $("#data_dump_2").append(nextHotness);
                 }
             }
     }, function(errorObject) {
         console.log("The read failed: " + errorObject.code);
     });
 };
-
-
-
 
 $(document).on("click", ".hoth-btn", ice);
 $(document).on("click", ".mustafar-btn", fire);

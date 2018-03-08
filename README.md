@@ -4,6 +4,10 @@
 ## THANK YOU
 * Thank you to SWAPI for providing us a wealth of information for our characters
 * Thank you to George Lucas/Disney for building and developing the universe we love so much
+* Thank you to Wayne Dunkley,Donovan Hutchinson, and Tady Walsh for their awesome CSS animations for our landing page
+    * https://codepen.io/waynedunkley/pen/YPJWaz
+    * https://codepen.io/donovanh/
+    * https://codepen.io/tadywankenobi/pen/QbWNGR
 * Thank you, user, for your interest in our project. We hope you had fun and had some laughs
 
 ### Thursday 3/8/18
@@ -53,11 +57,6 @@
 
 #### Technology links
 * Star Wars API documentation - https://swapi.co/documentation
-* GIPHY API node package - https://www.npmjs.com/package/giphy-api
-* SWAPI node package https://www.npmjs.com/package/swapi-node
-    * will be using http://swapi.co/api/people/?search= endpoint to search for charcaters
-    * result.results[0]."insert desired parameter here"
-* Motion UI - https://zurb.com/playground/motion-ui
 * Matererliaze CSS - http://materializecss.com/getting-started.html
 * Firebase - https://firebase.google.com/
     * Database - https://console.firebase.google.com/project/hoth-or-not-d14ab/database/hoth-or-not-d14ab/data

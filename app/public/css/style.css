@@ -43,6 +43,10 @@ main {
 .btn-large{
   width: 100%;
 }
+.hotResult{
+  padding-bottom: 5px;
+  color: orangered;
+}
 .mustafar-btn{
   margin-top: 60px;
   margin-bottom: 5px;
@@ -64,14 +68,15 @@ main {
 .page-footer{
   opacity: 0.55;
 }
-
+.voteResult{
+  font-family: 'Krona One', sans-serif;
+}
 /* mobile compatibility media queries*/
-@media only screen and (max-width: 615px) {
+@media only screen and (max-width: 600px) {
   .mustafar-btn{
     margin-top: 5px;
   }
 }
-
 /* LANDING PAGE ANIMATION CSS */
 @keyframes spinsun {
     0% { transform: rotate(0); }
