@@ -15,6 +15,8 @@
         <link rel="stylesheet" type="text/css" href="/css/style.css">
     </head>
     <body>
+      <!-- <audio id="sound_tag" src="saber.mp3" preload="auto"></audio> -->
+
       <header>
         <nav>
           <div class="nav-wrapper blue-grey darken-3">
@@ -36,7 +38,7 @@
           <div class="row">
                         
             <div class="col s12 m6">
-              <div id = 'img-div'><img class='char-img' src='https://imgur.com/deRIvua.jpg'></div>
+              <div id = 'img-div'></div>
             </div>
                 
 
@@ -53,27 +55,17 @@
                 <div class = 'row'>
                   <div class = 'col s12 m12'>
                     <div id="hoth-btn">
-                      <button class="waves-effect waves-light btn-large hoth-btn valign-wrapper">Hoth</button>
+                      <button class="waves-effect waves-light btn-large hoth-btn">Hoth</button>
                     </div>
                   </div>
                 </div>
 
             </div>
                         
-            <div id='info-div' class="col s12 m6">
+            <div class="col s12 m6">
               <div class="card blue-grey darken-1 cardopacity">
-                <div class="card-content white-text">
-                                I contain character information.  
-                                I contain character information.  
-                                I contain character information.  
-                                I contain character information.  
-                                I contain character information.  
-                                I contain character information.  
-                                I contain character information.  
-                                I contain character information.  
-                                I contain character information.  
-                                I contain character information.  
-                                I contain character information.  
+                <div id='info-div' class="card-content white-text">
+
                 </div>          
               </div>
             </div>   
@@ -90,11 +82,17 @@
         © 2018 Hoth or Not
           </div>
     </footer>
-              
+    
+
 
         
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
-        <!-- <script src="javascript/script.js"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <script src="javascript/scriptnew.js"></script>
+        <!-- <script type="text/javascript">
+          $(document).ready(function(){
+              $('#sound_tag')[0].play();
+          });
+      </script> -->
     </body>
 </html>

@@ -2,7 +2,7 @@ var characters = [
     {
         name: 'test' ,
         hot: false   ,
-        url: 'https://vignette.wikia.nocookie.net/starwars/images/d/d6/Yoda_SWSB.png/revision/latest/scale-to-width-down/500?cb=20150206140125'
+        url: 'https://i.imgur.com/3SOg4P9.jpg'
     },
     {
         name: 'yoda' ,
