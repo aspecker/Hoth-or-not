@@ -124,7 +124,7 @@ var charInfo = (character) =>{
         $('#info-div').html('<h3>Click either button to get started!</h3>')
     } else {
     $.ajax({
-        url: `http://swapi.co/api/people/?search=${character}`,
+        url: `https://swapi.co/api/people/?search=${character}`,
         method: "GET"
       }).then((result) => {
         // appends info-div with the character information
@@ -153,7 +153,8 @@ var charInfo = (character) =>{
 
         // ajax call for species
         $.ajax({
-            url: result.results[0].species[0].replace('https', 'http'),
+            // url: result.results[0].species[0].replace('https', 'http'),
+            url: result.results[0].species[0],
             method: "GET"
           }).then((result) => {
             var species = $("<h5>");
@@ -162,7 +163,8 @@ var charInfo = (character) =>{
         });
         // ajax call for homeworld
         $.ajax({
-            url: result.results[0].homeworld.replace('https','http'),
+            // url: result.results[0].homeworld.replace('https','http'),
+            url: result.results[0].homeworld,
             method: "GET"
           }).then((result) => {
             var homeWorld = $("<h5>");
