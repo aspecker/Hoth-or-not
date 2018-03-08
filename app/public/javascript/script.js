@@ -102,8 +102,7 @@ function generate() {
 
     // Function to deliver images and character info
     getImage(person); 
-    charInfo(person);
-          
+    charInfo(person);         
 }
 // checks if at the end of the character array
 function checker() {
@@ -188,7 +187,6 @@ function getImage (charname) {
                 newImg.addClass('char-img')
                 newImg.attr('src',data[i].url);
                 $('#img-div').append(newImg);
-                
             }
         }
     })
@@ -229,6 +227,7 @@ var returnScore = () => {
                     $("#data_dump_2").append(nextResult);
                     $("#data_dump_2").append(nextHotness);
                 }
+                
             }
     }, function(errorObject) {
         console.log("The read failed: " + errorObject.code);

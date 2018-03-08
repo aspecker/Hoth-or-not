@@ -14,7 +14,7 @@
 * work on using client side logic to make SWAPI call-> AJAX can be used if neccessary
 * work on loading results page
 * further styling
-* DEPLOY TO HEROKU
+* deploy to heroku
 
 ### Wednesday 3/7/18
 * finish results page and integrate generate score function
