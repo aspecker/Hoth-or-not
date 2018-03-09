@@ -1,10 +1,7 @@
 // declare array to rotate through
-var characters = ["test", "yoda", "luke", "han", "lando", "rey", "poe", "finn", "windu", "amidala", "qui-gon", "chewbacca",
-                    "r2-d2", "ackbar", "leia", "anakin", "palpatine", "greedo", "jabba", "maul", "vader","binks",
-                    "wicket","grievous", "dooku","boba","jango",'ayla','ki-adi','obi-wan','kit'];
+var characters = ["test", "yoda", "luke", "han", "ackbar", "lando", "jabba","vader","rey", "palpatine",  "binks", "finn", "grievous", "amidala", "qui-gon", "chewbacca","poe","r2-d2", "leia", "anakin", "greedo", "maul","windu", "wicket", "dooku","boba",'obi-wan'];
 // dummy array that will be replaced by user picks
-var user_picks = [false, false, false, false, false, false, false, false, false, false, false, false, false, false,
-                    false, false, false, false, false, false, false, false, false, false, false, false, false,false,false,false,false];
+var user_picks = [false, false, false, false, false, false, false, false, false, false, false, false, false, false,false, false, false, false, false, false, false, false, false, false, false, false, false];
 var current_char = 0;
 var person = (characters[current_char]);
 
@@ -24,6 +21,8 @@ var database = firebase.database();
 var hotCount = 0;
 var notCount = 0;
 var totalVotes = 0;
+var topHots = [];
+var topNots = [];
 
 // function that runs on click of the Mustafar button
 function fire(event) {
@@ -176,7 +175,6 @@ var charInfo = (character) =>{
 // delivers an image based on the character name from our charObj.js
 function getImage (charname) {
     $.get('/api/characters', function (data){
-        console.log(data);
         for (var i =0;i<data.length;i++){
             if (data[i].name.indexOf(charname)>-1){
                 if (charname==='obi-wan'){
@@ -191,54 +189,90 @@ function getImage (charname) {
         }
     })
 }
-// runs when the last characted is voted on, and outputs the users votes and all-user votes taken from firebase
+// runs when the last character is voted on, and outputs the users votes and all-user votes taken from firebase
 var returnScore = () => {
     user_picks = JSON.parse(localStorage.getItem('votes'))
-    console.log(user_picks);
-    database.ref().on("value", function(snapshot) {     
-        $('#data_dump_1').empty();
-        $('#data_dump_2').empty();    
-        $('#allVotes').empty();
+    database.ref().on("value", function(snapshot) {       topHots = [];
+        topNots = [];
+        $('#data-dump').empty();
+        $('#data-dump').append('<h3>Your votes</h3>')
+        $('#totalVotes').empty();
+        $('#totalVotes').html(`<h2 id='voteDisplay'>${snapshot.val()[characters[1]].total} total users have voted</h2>`);
+
             for (var i=1;i<characters.length;i++){
+                // gather vote counts from firebase
                 var gamma = characters[i];
-                var choice = "";
+                var output = $('<p>');
+                var choice = '';
                 var hot = snapshot.val()[gamma].hot;
                 var total = snapshot.val()[gamma].total;
                 var percent = ((hot/total)*100).toFixed(2);
+                var result = '';
                 var character = characters[i].charAt(0).toUpperCase() + characters[i].slice(1);
+                // add high and low results to arrays
+                if (percent>70){
+                    topHots.push(gamma);
+                }
+                if (percent<35){
+                    topNots.push(gamma);
+                }
+                // assign strings based on user vote
                 if (user_picks[i]===false){
                     choice = 'Hoth';
+                    output.addClass('hothResult');
                 } else {
-                    choice = 'Mustafar';
+                    choice = 'Mustafar'
+                    output.addClass('musResult');
                 }
-                var result = (`${character}  || You voted: ${choice}`);
-                var hotness = (`Total Hotness Score: ${percent}%`)
-                var nextResult = $("<p>");
-                var nextHotness = $("<p>");
-                // var allVotes = snapshot.val()[characters[i].total];
-                nextResult.addClass('voteResult');
-                nextResult.text(result);
-                nextHotness.addClass ('hotResult');
-                nextHotness.text(hotness);
-                // var voteTally = $("<h5>");
-                // voteTally.addClass('totalVotes');
-                // voteTally.text(`${allVotes} users have voted`);
-                // $('#allVotes').append(voteTally);
-                if (i<=15){
-                    $("#data_dump_1").append(nextResult);
-                    $("#data_dump_1").append(nextHotness);
-                }
-                else if (i>15) {
-                    $("#data_dump_2").append(nextResult);
-                    $("#data_dump_2").append(nextHotness);
-                }
+                 output.text(`${character}  |  You: ${choice}  |  ${percent}% think Mustafar`)
+                $('#data-dump').append(output);
             }
     }, function(errorObject) {
         console.log("The read failed: " + errorObject.code);
     });
 };
+var mostHot = () =>{
+    $('#data-dump').empty();
+    $('.data-dump').addClass('musResult');
+    $('#data-dump').append('<h3 class="musResult">The Most Mustafar<h3>');
+        
+    database.ref().on("value", function(snapshot) {
+        for (var i=0;i<topHots.length;i++){
+            var gamma = topHots[i];
+            var char = gamma.charAt(0).toUpperCase() + gamma.slice(1);
+            var hot = snapshot.val()[gamma].hot;
+            var total = snapshot.val()[gamma].total;
+            var percent = ((hot/total)*100).toFixed(2);
+            $('#data-dump').append(`<p >${char}:    <b>${percent}%</b>    Mustafar</p>`)
+        }
+    }, function(errorObject) {
+            console.log("The read failed: " + errorObject.code);
+    });      
+}
+var mostNot = () =>{
+    $('#data-dump').empty();
+    $('.data-dump').addClass('hothResult');
+    $('#data-dump').append('<h3 class="hothResult">The Most Hoth<h3>')
+        
+    database.ref().on("value", function(snapshot) {
+        for (var i=0;i<topNots.length;i++){
+            var gamma = topNots[i];
+            var char = gamma.charAt(0).toUpperCase() + gamma.slice(1);
+            var hot = snapshot.val()[gamma].hot;
+            var total = snapshot.val()[gamma].total;
+            var percent = ((hot/total)*100).toFixed(2);
+            $('#data-dump').append(`<p>${char}:    <b>${percent}%</b>    Mustafar</p>`)
+        }
+    }, function(errorObject) {
+            console.log("The read failed: " + errorObject.code);
+    });  
+}
+
 
 $(document).on("click", ".hoth-btn", ice);
 $(document).on("click", ".mustafar-btn", fire);
+$(document).on('click', "#mostHot",mostHot);
+$(document).on('click','#mostNot',mostNot);
+$(document).on('click','#myVotes',returnScore)
 generate();
 

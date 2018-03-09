@@ -130,29 +130,9 @@ var characters = [
         url: 'https://vignette.wikia.nocookie.net/starwars/images/7/79/Boba_Fett_HS_Fathead.png/revision/latest/scale-to-width-down/500?cb=20161114160631'
     },
     {
-        name: 'jango' ,
-        hot: false   ,
-        url: 'https://vignette.wikia.nocookie.net/starwars/images/5/56/JangoInfobox.png/revision/latest/scale-to-width-down/500?cb=20171106005917'
-    },
-    {
-        name: 'ayla',
-        hot: false,
-        url: 'https://vignette.wikia.nocookie.net/starwars/images/4/4d/Aayla_Secura_SWE.png/revision/latest/scale-to-width-down/500?cb=20180121065247'
-    },
-    {
-        name: 'ki-adi',
-        hot: false,
-        url: 'https://vignette.wikia.nocookie.net/starwars/images/9/9e/KiAdiMundi.jpg/revision/latest/scale-to-width-down/500?cb=20070930185700'
-    },
-    {
         name: 'obi-wan',
         hot: false,
         url: 'https://i.imgur.com/fnBfPoR.jpg'
-    },
-    {
-        name: 'kit',
-        hot: false,
-        url: 'https://vignette.wikia.nocookie.net/starwars/images/4/4c/Kit_Fisto_Card_Trader.png/revision/latest?cb=20180225000050'
     }
 ]
 module.exports = characters;

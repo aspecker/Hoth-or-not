@@ -11,14 +11,11 @@ body {
 .navbarright {
     margin-right: 100px;
 }
-.card-content {
-    color: white;
-}
 .charshadow {
     text-shadow: 1px 1px 2px black, 0 0 25px white, 0 0 5px yellow;
 }
-.cardopacity {
-    background: rgba(76, 80, 175, 0.3)
+.opacity{
+  opacity: 0.7;
 }
 main {
     flex: 1 0 auto;
@@ -32,22 +29,19 @@ main {
 }
 #info-div{
   padding-top: 12px;
-  font-family: 'VT323', monospace;
-  font-size: 3.5em;
+  font-family: 'Krona One', sans-serif;
+  font-size: 1.5em;
 }
 .char-img{
   border: solid 1px black;
   border-radius: 5%;
 }
-.data_dump{
-  margin-top: 80px;
-  font-family: 'VT323', monospace;
+.data-dump{
+  font-family: 'Krona One', sans-serif;
+  margin-top: 0px;
 }
 .btn-large{
   width: 100%;
-}
-.hotResult{
-  padding-bottom: 5px;
 }
 .mustafar-btn{
   margin-top: 60px;
@@ -59,17 +53,35 @@ main {
   font-weight: bold;
   font-size: 2em;
   border-radius: 50%;
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Krona One', sans-serif;
 }
 .hoth-btn{
   background-image: url('http://i.imgur.com/vqorvoO.jpg');
   background-position: center; 
   color: white;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;  
   font-weight: bold;
   font-size: 2em;
   border-radius: 50%;
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Krona One', sans-serif;
+}
+#mostHot{
+  font-family: 'Krona One', sans-serif;
+  background-image: url('https://i.imgur.com/Orq5ygd.jpg');
+  background-position: center; 
+  color: black;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  font-weight: bold;
+  font-size: 2em;
+}
+#mostNot{
+  background-image: url('http://i.imgur.com/vqorvoO.jpg');
+  background-position: center; 
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;  
+  font-weight: bold;
+  font-family: 'Krona One', sans-serif;
+  font-size: 2em;
 }
 .page-footer{
   opacity: 0.55;
@@ -77,10 +89,27 @@ main {
 .voteResult{
   font-family: 'Krona One', sans-serif;
 }
+.musResult{
+  color: black;
+  text-shadow: -1px 0 orangered, 0 1px orangered, 1px 0 orangered, 0 -1px orangered;
+}
+.hothResult{
+  color: white;
+  text-shadow: -1px 0 cyan, 0 1px cyan, 1px 0 cyan, 0 -1px cyan;
+}
+#totalVotes{
+  color: orange;
+  margin-top: 20px;
+}
 /* mobile compatibility media queries*/
 @media only screen and (max-width: 600px) {
   .mustafar-btn{
     margin-top: 5px;
+  }
+}
+@media (max-width: 175px){
+  #totalVotes{
+    margin-top: 0px;
   }
 }
 /* LANDING PAGE ANIMATION CSS */
