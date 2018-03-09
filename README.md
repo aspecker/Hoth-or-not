@@ -59,4 +59,3 @@
 * Star Wars API documentation - https://swapi.co/documentation
 * Matererliaze CSS - http://materializecss.com/getting-started.html
 * Firebase - https://firebase.google.com/
-    * Database - https://console.firebase.google.com/project/hoth-or-not-d14ab/database/hoth-or-not-d14ab/data
