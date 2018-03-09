@@ -32,6 +32,8 @@ main {
 }
 #info-div{
   padding-top: 12px;
+  font-family: 'VT323', monospace;
+  font-size: 3.5em;
 }
 .char-img{
   border: solid 1px black;
@@ -39,6 +41,7 @@ main {
 }
 .data_dump{
   margin-top: 80px;
+  font-family: 'VT323', monospace;
 }
 .btn-large{
   width: 100%;
@@ -55,6 +58,8 @@ main {
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
   font-weight: bold;
   font-size: 2em;
+  border-radius: 50%;
+  font-family: 'Press Start 2P', cursive;
 }
 .hoth-btn{
   background-image: url('http://i.imgur.com/vqorvoO.jpg');
@@ -63,6 +68,8 @@ main {
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   font-weight: bold;
   font-size: 2em;
+  border-radius: 50%;
+  font-family: 'Press Start 2P', cursive;
 }
 .page-footer{
   opacity: 0.55;
