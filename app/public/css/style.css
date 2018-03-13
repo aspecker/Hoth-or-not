@@ -116,7 +116,7 @@ main {
 }
 .musResult{
   color: black;
-  text-shadow: -1px 0 orangered, 0 1px orangered, 1px 0 orangered, 0 -1px orangered;
+  text-shadow: -1px 0 orangered, 0 1px orangered, 1px 0 orangered;
 }
 .hothResult{
   /* color: white; */

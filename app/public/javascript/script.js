@@ -226,7 +226,7 @@ var returnScore = () => {
                     choice = 'Mustafar';
                     output.addClass('musResult');
                 }
-                 output.text(`${character}  |  You: ${choice}  |  ${percent}% think Mustafar`)
+                 output.text(`${character}  |  ${choice}  |  ${percent}% Mustafar`)
                 $('#data-dump').append(output);
             }
     }, function(errorObject) {
@@ -246,7 +246,7 @@ var mostHot = () =>{
             var hot = snapshot.val()[gamma].hot;
             var total = snapshot.val()[gamma].total;
             var percent = ((hot/total)*100).toFixed(2);
-            $('#data-dump').append(`<p>${char}:    <b>${percent}%</b>    Mustafar</p>`)
+            $('#data-dump').append(`<p>${char}:    <span>${percent}%</span>    Mustafar</p>`)
         }
     }, function(errorObject) {
             console.log("The read failed: " + errorObject.code);
@@ -265,7 +265,7 @@ var mostNot = () =>{
             var hot = snapshot.val()[gamma].hot;
             var total = snapshot.val()[gamma].total;
             var percent = ((hot/total)*100).toFixed(2);
-            $('#data-dump').append(`<p>${char}:    <b>${percent}%</b>    Mustafar</p>`)
+            $('#data-dump').append(`<p>${char}:    ${percent}%    Mustafar</p>`)
         }
     }, function(errorObject) {
             console.log("The read failed: " + errorObject.code);
