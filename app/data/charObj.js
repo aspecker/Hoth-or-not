@@ -72,7 +72,7 @@ var characters = [
     {
         name: 'leia' ,
         hot: false   ,
-        url: 'https://imgur.com/deRIvua.jpg'
+        url: 'http://78.media.tumblr.com/631c9d89580718aab4a7984f2b83a663/tumblr_oxgqcdxXde1rx9xdlo6_500.jpg'
     },
     {
         name: 'anakin' ,

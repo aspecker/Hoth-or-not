@@ -119,7 +119,7 @@ function checker() {
 var charInfo = (character) =>{
     if (current_char ==0){
         // displays initial readout for 'test' case at index 0
-        $('#info-div').html("<h5>Click either button to get started!</h5> <h5>Mustafar for Hot, and Hoth for Not.</h5>")
+        $('#info-div').html("<h5 class ='instruct'>Click either button to get started!</h5> <h5 class='instruct'>Mustafar for Hot, and Hoth for Not.</h5>")
     } else {
     $.ajax({
         url: `https://swapi.co/api/people/?search=${character}`,
@@ -195,7 +195,9 @@ var returnScore = () => {
     database.ref().on("value", function(snapshot) {       topHots = [];
         topNots = [];
         $('#data-dump').empty();
-        $('#data-dump').append('<h3>Your votes</h3>')
+        var yourVote = $('<h3>How you voted</h3>');
+        yourVote.addClass('musResult');
+        $('#data-dump').append(yourVote);
         $('#totalVotes').empty();
         $('#totalVotes').html(`<h2 id='voteDisplay'>${snapshot.val()[characters[1]].total} total users have voted</h2>`);
 
@@ -210,7 +212,7 @@ var returnScore = () => {
                 var result = '';
                 var character = characters[i].charAt(0).toUpperCase() + characters[i].slice(1);
                 // add high and low results to arrays
-                if (percent>70){
+                if (percent>72.5){
                     topHots.push(gamma);
                 }
                 if (percent<35){
@@ -221,7 +223,7 @@ var returnScore = () => {
                     choice = 'Hoth';
                     output.addClass('hothResult');
                 } else {
-                    choice = 'Mustafar'
+                    choice = 'Mustafar';
                     output.addClass('musResult');
                 }
                  output.text(`${character}  |  You: ${choice}  |  ${percent}% think Mustafar`)
@@ -233,6 +235,7 @@ var returnScore = () => {
 };
 var mostHot = () =>{
     $('#data-dump').empty();
+    $('.data-dump').removeClass('hothResult');
     $('.data-dump').addClass('musResult');
     $('#data-dump').append('<h3 class="musResult">The Most Mustafar<h3>');
         
@@ -243,7 +246,7 @@ var mostHot = () =>{
             var hot = snapshot.val()[gamma].hot;
             var total = snapshot.val()[gamma].total;
             var percent = ((hot/total)*100).toFixed(2);
-            $('#data-dump').append(`<p >${char}:    <b>${percent}%</b>    Mustafar</p>`)
+            $('#data-dump').append(`<p>${char}:    <b>${percent}%</b>    Mustafar</p>`)
         }
     }, function(errorObject) {
             console.log("The read failed: " + errorObject.code);
@@ -251,6 +254,7 @@ var mostHot = () =>{
 }
 var mostNot = () =>{
     $('#data-dump').empty();
+    $('.data-dump').removeClass('musResult');
     $('.data-dump').addClass('hothResult');
     $('#data-dump').append('<h3 class="hothResult">The Most Hoth<h3>')
         
