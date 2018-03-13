@@ -237,7 +237,7 @@ var mostHot = () =>{
     $('#data-dump').empty();
     $('.data-dump').removeClass('hothResult');
     $('.data-dump').addClass('musResult');
-    $('#data-dump').append('<h3 class="musResult">The Most Mustafar<h3>');
+    $('#data-dump').append('<h3 class="musResult">Most Mustafar<h3>');
         
     database.ref().on("value", function(snapshot) {
         for (var i=0;i<topHots.length;i++){
@@ -256,7 +256,7 @@ var mostNot = () =>{
     $('#data-dump').empty();
     $('.data-dump').removeClass('musResult');
     $('.data-dump').addClass('hothResult');
-    $('#data-dump').append('<h3 class="hothResult">The Most Hoth<h3>')
+    $('#data-dump').append('<h3 class="hothResult">Most Hoth<h3>')
         
     database.ref().on("value", function(snapshot) {
         for (var i=0;i<topNots.length;i++){
